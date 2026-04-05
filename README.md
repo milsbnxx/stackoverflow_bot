@@ -26,13 +26,10 @@
 
 ## Откуда взять данные
 
-Можно использовать любой из датасетов Stack Overflow с Kaggle:
-- [StackSample](https://www.kaggle.com/datasets/stackoverflow/stacksample)
-- [StatsQuestions](https://www.kaggle.com/datasets/stackoverflow/statsquestions/data)
+Используй датасет Stack Overflow с Kaggle:
 - [PythonQuestions](https://www.kaggle.com/datasets/stackoverflow/pythonquestions)
 
-Для текущего пайплайна нужен формат с файлами `Questions.csv` и `Answers.csv`
-(проще всего взять `StackSample`).
+Для текущего пайплайна нужен формат с файлами `Questions.csv` и `Answers.csv`.
 
 Положи их в папку `data/`:
 
