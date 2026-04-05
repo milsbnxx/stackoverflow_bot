@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Overflow Bot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="bg-glow bg-glow-a"></div>
+  <div class="bg-glow bg-glow-b"></div>
+
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">Knowledge Retrieval</p>
+      <h1>Stack Overflow Bot</h1>
+      <p class="subtitle">
+        Бот не генерирует новый ответ, а находит самые релевантные ответы из базы.
+      </p>
+    </section>
+
+    <section class="search-card">
+      <label for="query">Ваш вопрос</label>
+      <textarea
+        id="query"
+        rows="3"
+        placeholder="Например: How to convert list to string in Python?"
+      ></textarea>
+
+      <div class="controls">
+        <label for="topk">Top-K</label>
+        <input id="topk" type="range" min="1" max="5" step="1" value="3">
+        <span id="topkValue">3</span>
+        <button id="searchBtn" type="button">Найти ответ</button>
+      </div>
+    </section>
+
+    <section id="status" class="status hidden"></section>
+    <section id="results" class="results"></section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
