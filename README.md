@@ -13,9 +13,9 @@
 - `build_index.py` — построение индекса эмбеддингов
 - `src/retriever.py` — поиск релевантных вопросов/ответов
 - `app.py` — Flask backend + API `/api/search`
-- `templates/index.html` — HTML интерфейс
-- `static/styles.css` — стили
-- `static/app.js` — логика фронтенда
+- `frontend/index.html` — HTML интерфейс
+- `frontend/styles.css` — стили
+- `frontend/app.js` — логика фронтенда
 - `data/index/question_embeddings.npy` — векторы вопросов
 - `data/index/metadata.json` — тексты и метаданные для выдачи
 
@@ -24,10 +24,29 @@
 - Python 3.10+ (лучше 3.11+)
 - интернет на первом запуске (чтобы скачать модель с Hugging Face)
 
+## Откуда взять данные
+
+Можно использовать любой из датасетов Stack Overflow с Kaggle:
+- [StackSample](https://www.kaggle.com/datasets/stackoverflow/stacksample)
+- [StatsQuestions](https://www.kaggle.com/datasets/stackoverflow/statsquestions/data)
+- [PythonQuestions](https://www.kaggle.com/datasets/stackoverflow/pythonquestions)
+
+Для текущего пайплайна нужен формат с файлами `Questions.csv` и `Answers.csv`
+(проще всего взять `StackSample`).
+
+Положи их в папку `data/`:
+
+```bash
+mkdir -p data
+# затем скопируй сюда файлы:
+# data/Questions.csv
+# data/Answers.csv
+```
+
 ## Запуск (если индекс уже есть)
 
 ```bash
-cd /Users/sabinaamilova/Documents/stackoverflow_bot
+cd /path/to/your/project
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -66,7 +85,7 @@ python3 app.py
 
 ## Как обновить базу новыми данными
 
-После замены CSV-файлов в `data/` нужно пересобрать:
+После замены `Questions.csv` и `Answers.csv` в `data/` нужно пересобрать:
 
 ```bash
 python3 src/prepare_data.py

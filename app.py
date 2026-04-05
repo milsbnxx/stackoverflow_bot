@@ -10,7 +10,12 @@ from src.retriever import EmbeddingRetriever
 BASE_DIR = Path(__file__).resolve().parent
 INDEX_DIR = BASE_DIR / "data" / "index"
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder=str(BASE_DIR / "frontend"),
+    static_folder=str(BASE_DIR / "frontend"),
+    static_url_path="/assets",
+)
 
 retriever = None
 retriever_error = ""
